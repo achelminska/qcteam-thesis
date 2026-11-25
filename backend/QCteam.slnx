@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/Unit/">
+    <Project Path="tests/Unit/QCteam.UnitTests.csproj" />
+  </Folder>
+  <Project Path="QCteam.Api/QCteam.Api.csproj" />
+  <Project Path="QCteam.SharedKernel/QCteam.SharedKernel.csproj" />
+</Solution>

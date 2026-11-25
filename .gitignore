@@ -12,3 +12,4 @@ appsettings.*.local.json
 uploads/
 *.log
 node_modules/
+TestResults/
