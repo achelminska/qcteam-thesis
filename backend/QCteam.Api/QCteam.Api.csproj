@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QCteam.SharedKernel\QCteam.SharedKernel.csproj" />
+    <ProjectReference Include="..\QCteam.Modules.Catalog\QCteam.Modules.Catalog.csproj" />
   </ItemGroup>
 
 </Project>
