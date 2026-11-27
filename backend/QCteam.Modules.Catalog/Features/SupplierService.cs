@@ -1,16 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using QCteam.Modules.Catalog.Domain;
-using QCteam.Modules.Catalog.Features;
 using QCteam.Modules.Catalog.Features.Contracts;
 using QCteam.SharedKernel;
 
-namespace QCteam.Infrastructure.Catalog;
+namespace QCteam.Modules.Catalog.Features;
 
 public class SupplierService : ISupplierService
 {
-    private readonly AppDbContext _db;
+    private readonly IAppDbContext _db;
 
-    public SupplierService(AppDbContext db) => _db = db;
+    public SupplierService(IAppDbContext db) => _db = db;
 
     public async Task<Result<SupplierResponse>> CreateAsync(SupplierRequest request, CancellationToken ct)
     {
@@ -23,7 +22,7 @@ public class SupplierService : ISupplierService
             Address = request.Address
         };
 
-        _db.Suppliers.Add(supplier);
+        _db.Set<Supplier>().Add(supplier);
         await _db.SaveChangesAsync(ct);
 
         return ToResponse(supplier);
@@ -31,7 +30,7 @@ public class SupplierService : ISupplierService
 
     public async Task<Result<SupplierResponse>> GetAsync(Guid id, CancellationToken ct)
     {
-        var supplier = await _db.Suppliers.FirstOrDefaultAsync(s => s.Id == id, ct);
+        var supplier = await _db.Set<Supplier>().FirstOrDefaultAsync(s => s.Id == id, ct);
 
         if (supplier is null)
             return Error.NotFound("supplier_not_found", "Nie ma takiego dostawcy.");
