@@ -6,5 +6,6 @@
   <Project Path="QCteam.Api/QCteam.Api.csproj" />
   <Project Path="QCteam.Infrastructure/QCteam.Infrastructure.csproj" />
   <Project Path="QCteam.Modules.Catalog/QCteam.Modules.Catalog.csproj" />
+  <Project Path="QCteam.Modules.Identity/QCteam.Modules.Identity.csproj" />
   <Project Path="QCteam.SharedKernel/QCteam.SharedKernel.csproj" />
 </Solution>
